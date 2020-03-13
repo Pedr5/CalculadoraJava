@@ -1,4 +1,4 @@
-package newpackage;
+package calculadora;
 
 public class Operacao{
 

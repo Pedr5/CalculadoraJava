@@ -1,4 +1,4 @@
-package newpackage;
+package calculadora;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -44,13 +44,18 @@ public class Menu implements ActionListener{
         }
         @Override
         public void actionPerformed(ActionEvent e) {
+            try{
             var1 = Double.parseDouble(num1.getText());
             var2 = Double.parseDouble(num2.getText());
+            }catch(NumberFormatException f){
+                JOptionPane.showMessageDialog(panel, "Digite apenas números!", "ALERTA", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
             if(robo.getValorDaBateria() == 0){ 
                JOptionPane.showMessageDialog(panel, "Bateria Insuficiente!", "Alerta", JOptionPane.WARNING_MESSAGE);
                return;
-                
             }
+            
             if (e.getActionCommand().equals("Adição")){     
                 resultado.setText("" + robo.operacao.adicao(var1, var2));
             }
